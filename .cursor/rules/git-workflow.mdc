@@ -1,0 +1,18 @@
+---
+description: Ramas, commits y push
+alwaysApply: true
+---
+
+<!-- Copia de docs/agente/git-workflow.md. Edita el original y vuelve a copiarlo aquí. -->
+
+# Git — resumen operativo
+
+La norma completa está en `docs/08-git.md`. Lo mínimo:
+
+- Rama `<tipo>/<nombre>` (`feature|fix|chore|docs`) creada desde `develop` **antes** de implementar. `<nombre>` = nombre del feature o de la tarea.
+- Commits por hito: `<slug>: <hito> — <resumen en español>`. Ej.: `reportes: tasks 1-3 — tipos, reportes-api y format`.
+- Si hay un `SPEC.md` o plan escrito, commitéalo **antes** del código que implementa.
+- `git add <ruta>` por archivo. Nunca `git add .`, `-A`, `--amend` sobre commits pusheados ni `--no-verify`.
+- **Nunca `git push` sin confirmación explícita del usuario.**
+
+Detalle: `docs/08-git.md`

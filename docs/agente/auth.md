@@ -1,0 +1,12 @@
+# Autenticación (Cognito + Amplify v6)
+
+- `Amplify.configure` se llama **solo** en `ConfigureAmplify.tsx`, a nivel de módulo, con `{ ssr: true }`.
+- Cliente: `aws-amplify/auth`. Servidor: `aws-amplify/auth/server` con `runWithAmplifyServerContext` (`amplify-server.ts`).
+- Se usa el **access token** (no el id token) para grupos y para el Bearer.
+- Tras un login exitoso: ir a la primera ruta de `catalogNavItems()`. No cerrar la sesión por falta de grupos.
+- Errores de Cognito siempre por `translateCognitoError(error, phase)`. Nunca mostrar el mensaje de AWS. `UserNotFoundException` muestra lo mismo que una contraseña incorrecta.
+- La duración máxima de sesión vive en `session-limit.ts` (`NEXT_PUBLIC_SESSION_MAX_MINUTES`, por defecto 60, contada desde `auth_time`). Al vencer, se cierra la sesión y la pantalla sigue abierta como invitado.
+- Flujos nuevos (MFA, reset) solo con funciones oficiales de `aws-amplify/auth`.
+- Al tocar `src/proxy.ts`: sin `export const runtime`. El proxy deja pasar las rutas; no redirige a `/login`. El `matcher` no se toca al agregar dashboards.
+
+Detalle: `docs/03-autenticacion.md`

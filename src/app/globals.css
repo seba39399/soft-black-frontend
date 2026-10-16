@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/*
+ * Soft Black (Jamundí): fondo negro, texto blanco, acento amarillo.
+ * Sombras duras con offset y grano nocturno. El amarillo va sobre negro.
+ */
+:root {
+  color-scheme: dark;
+  --background: #000000;
+  --foreground: #ffffff;
+  --accent: #ffc100;
+  --accent-ink: #000000;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --shadow-hard: 4px 4px 0 0 #ffc100;
+}
+
+/* Grano callejero. Se aplica sobre el shell, no como CSS suelto en cada componente. */
+@utility street-noise {
+  background-image: radial-gradient(rgb(255 255 255 / 0.16) 0.6px, transparent 0.7px);
+  background-size: 3px 3px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}

@@ -1,0 +1,15 @@
+---
+description: Reglas de esta carpeta (comandos, git, credenciales, contrato)
+alwaysApply: true
+---
+
+# soft-black-frontend (frontend)
+
+- Comandos: `nvm use vercel` (Node 22.15.1), `npm ci`, `npm run verify` (lint + typecheck + test + build), `npm run dev`.
+- Antes de dar una tarea por terminada: `npm run verify` sin errores, y muestra la salida.
+- Si la carpeta no es un repositorio git, no ejecutes comandos de git. Nunca `git push` sin confirmación explícita.
+- `.env.local` tiene credenciales: nunca muestres su contenido. Para saber qué variables existen, usa `.env.example`.
+- `docs/contrato/openapi.yaml` es una copia del contrato del backend: no la edites. Si falta un endpoint, redacta la propuesta para el backend.
+- Datos de la API, tipos o contrato: lee antes `docs/07-repos-y-contrato-api.md`.
+- Procedimiento (skill): `/nuevo-dashboard` para agregar una pantalla con menú y acceso por grupos.
+- Si una regla se contradice con los docs numerados de `docs/`, mandan los docs.
